@@ -5,19 +5,23 @@ export default function handler(req, res) {
             type: [
                 {
                     name: '2 Boosts',
-                    price: '$2.99'
+                    price: '$2.99',
+                    id: ''
                 },
                 {
                     name: '8 Boosts',
-                    price: '$7.99'
+                    price: '$7.99',
+                    id: ''
                 },
                 {
                     name: '10 Boosts',
-                    price: '$9.99'
+                    price: '$9.99',
+                    id: ''
                 },
                 {
                     name: '14 Boosts',
-                    price: '$12.49'
+                    price: '$12.49',
+                    id: ''
                 }
             ]
         },
@@ -26,19 +30,23 @@ export default function handler(req, res) {
             type: [
                 {
                     name: '2 Boosts',
-                    price: '$4.99'
+                    price: '$4.99',
+                    id: ''
                 },
                 {
                     name: '8 Boosts',
-                    price: '$14.99'
+                    price: '$14.99',
+                    id: ''
                 },
                 {
                     name: '10 Boosts',
-                    price: '$17.99'
+                    price: '$17.99',
+                    id: ''
                 },
                 {
                     name: '14 Boosts',
-                    price: '$21.99'
+                    price: '$21.99',
+                    id: ''
                 }
             ]
         },
@@ -47,19 +55,23 @@ export default function handler(req, res) {
             type: [
                 {
                     name: '4 Boosts',
-                    price: '$12.99'
+                    price: '$12.99',
+                    id: ''
                 },
                 {
                     name: '8 Boosts',
-                    price: '$28.99'
+                    price: '$28.99',
+                    id: ''
                 },
                 {
                     name: '10 Boosts',
-                    price: '$33.99'
+                    price: '$33.99',
+                    id: ''
                 },
                 {
                     name: '14 Boosts',
-                    price: '$39.99'
+                    price: '$39.99',
+                    id: ''
                 }
             ]
         },
@@ -68,19 +80,23 @@ export default function handler(req, res) {
             type: [
                 {
                     name: '8 Boosts',
-                    price: '$49.99'
+                    price: '$49.99',
+                    id: ''
                 },
                 {
                     name: '10 Boosts',
-                    price: '$59.99'
+                    price: '$59.99',
+                    id: ''
                 },
                 {
                     name: '14 Boosts',
-                    price: '$74.99'
+                    price: '$74.99',
+                    id: ''
                 },
                 {
                     name: '30 Boosts',
-                    price: '$99.99'
+                    price: '$99.99',
+                    id: ''
                 }
             ]
         },
@@ -89,11 +105,13 @@ export default function handler(req, res) {
             type: [
                 {
                     name: '15 Boosts',
-                    price: '$119.99'
+                    price: '$119.99',
+                    id: ''
                 },
                 {
                     name: '30 Boosts',
-                    price: '$149.99'
+                    price: '$149.99',
+                    id: ''
                 }
             ]
         },
@@ -103,6 +121,7 @@ export default function handler(req, res) {
                 {
                     name: 'Reseller Plan',
                     price: '$99.99',
+                    id: '',
                     desc: [
                         '33% Off All Products',
                         'Lifetime Access',
@@ -117,19 +136,23 @@ export default function handler(req, res) {
             type: [
                 {
                     name: 'YouTube Premium | 1 Months',
-                    price: '$4.99'
+                    price: '$4.99',
+                    id: ''
                 },
                 {
                     name: 'YouTube Premium | 3 Months',
-                    price: '$12.99'
+                    price: '$12.99',
+                    id: ''
                 },
                 {
                     name: 'YouTube Premium | 6 Months',
-                    price: '$24.99'
+                    price: '$24.99',
+                    id: ''
                 },
                 {
                     name: 'Youtube Premium | 1 Year',
-                    price: '$39.99'
+                    price: '$39.99',
+                    id: ''
                 },
 
             ]
@@ -140,6 +163,7 @@ export default function handler(req, res) {
                 {
                     name: 'Discord Nitro | 1 Month',
                     price: '$5.99',
+                    id: '',
                     desc: [
                         'Works for all users',
                         'Comes with 2 Boosts',
@@ -149,6 +173,7 @@ export default function handler(req, res) {
                 {
                     name: 'Discord Nitro | 3 Months',
                     price: '$7.49',
+                    id: '',
                     desc: [
                         'Works for new nitro users',
                         'Comes with 2 Boosts',
@@ -158,6 +183,7 @@ export default function handler(req, res) {
                 {
                     name: 'Dicord Nitro | 1 Year',
                     price: '$44.99',
+                    id: '',
                     desc: [
                         'Works for all users',
                         'Comes with 2 Boosts',
@@ -168,6 +194,7 @@ export default function handler(req, res) {
                 {
                     name: 'Nitro Basic | 1 Year',
                     price: '$19.99',
+                    id: '',
                     desc: [
                         'Works for all users',
                         'Full Warranty',
@@ -186,7 +213,6 @@ export default function handler(req, res) {
                         'Lifetime Warranty',
                         'Profile Pictures',
                         'Realistic Names'
-
                     ]
                 },
                 {

@@ -1,18 +1,22 @@
 import { CheckCircleIcon } from '@heroicons/react/24/outline';
 import { SvgIcon } from '@mui/material';
 import Image from 'next/image';
-import React from 'react';
+import React, { useRef } from 'react';
 import WipeButton from './wipeButton';
+import { useIsVisible } from '@/lib/useIsVisible';
 
 const InfoSection = ({ id, info, imgSrc, infoSide }) => {
+    const ref = useRef();
+    const isVisible = useIsVisible(ref);
+
     return (
-        <div id={id} className={`flex flex-col gap-8 max-w-7xl mx-auto items-center md:items-start py-12 xl:py-24 ${infoSide === 'right' ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
+        <div ref={ref} id={id} className={`${isVisible ? "opacity-100" : "opacity-0"} transition-opacity ease-in duration-1000 flex flex-col gap-8 max-w-7xl mx-auto items-center md:items-start py-12 pt-24 xl:py-24 xl:pt-32 ${infoSide === 'right' ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
             {/* Text Section */}
             <div className="flex flex-col gap-36 w-full md:w-3/5 px-6 m-auto">
                 {info.map((content, index) => (
                     <div key={index} className='flex flex-col gap-8'>
                         <h2 className={`${content.hSize} font-bold text-white font-headings mb-4 text-center md:text-start`}>{content.title}</h2>
-                        <h2 className="text-xl text-gray-300 font-dText mb-4">{content.subtitle}</h2>
+                        <h2 className="text-xl text-gray-300 font-main mb-4">{content.subtitle}</h2>
 
                         {content.listItems && (
                             <ul className="space-y-4 text-start">
@@ -21,7 +25,7 @@ const InfoSection = ({ id, info, imgSrc, infoSide }) => {
                                         <SvgIcon className="bg-white rounded-full">
                                             <CheckCircleIcon />
                                         </SvgIcon>
-                                        <span className="text-white font-dText text-lg">{item}</span>
+                                        <span className="text-white font-main text-lg">{item}</span>
                                     </li>
                                 ))}
                             </ul>
@@ -29,7 +33,7 @@ const InfoSection = ({ id, info, imgSrc, infoSide }) => {
 
                         {content.buttons && (
                             <div className='flex flex-col lg:flex-row gap-8 items-center md:items-start'>
-                                <WipeButton text="Join Our Discord" color="nitroPink" link="/" />
+                                <WipeButton text="Join Our Discord" color="nitroPink" link="https://www.discord.gg/Bonza" />
                                 <WipeButton text="Learn More" color="transparent" link="#about" />
                             </div>
                         )}

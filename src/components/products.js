@@ -1,11 +1,15 @@
+import { useIsVisible } from "@/lib/useIsVisible";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import { SvgIcon } from "@mui/material";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Products() {
     const [products, setProducts] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [filteredProducts, setFilteredProducts] = useState([]);
+
+    const ref = useRef();
+    const isVisible = useIsVisible(ref);
 
     useEffect(() => {
         fetchProducts();
@@ -35,7 +39,7 @@ export default function Products() {
     };
 
     return (
-        <div id="products" className="flex flex-col items-center justify-center py-12 xl:py-24 mx-4">
+        <div ref={ref} id="products" className={`${isVisible ? "opacity-100" : "opacity-0"} transition-opacity ease-in duration-1000 flex flex-col items-center justify-center py-12 xl:py-24 mx-4`}>
             <div className="max-w-7xl pb-12 items-center flex flex-col text-white">
                 <h1 className="font-headings text-4xl font-bold uppercase text-center mb-6">Get Started Today</h1>
             </div>
@@ -46,7 +50,7 @@ export default function Products() {
                     <div
                         key={index}
                         onClick={() => handleCategoryClick(p.category)}
-                        className={`px-8 py-2 flex text-lg text-white items-center justify-center rounded-full cursor-pointer ${selectedCategory === p.category ? 'bg-nitroPink' : 'bg-white/10 hover:bg-white/20'} shadow-lg select-none`}>
+                        className={`px-8 py-2 flex text-lg text-white font-main items-center justify-center rounded-full cursor-pointer ${selectedCategory === p.category ? 'bg-nitroPink' : 'bg-white/10 hover:bg-white/20'} shadow-lg select-none`}>
                         {p.category}
                     </div>
                 ))}
@@ -59,9 +63,15 @@ export default function Products() {
                         <div key={index} className="flex flex-col gap-6 bg-purple-900 text-white p-6 rounded-lg shadow-lg">
                             <h2 className="text-lg font-headings">{product.name}</h2>
                             <p className="text-5xl font-numbers">{product.price}</p>
-                            <a href={'/'} className="text-lg text-white px-20 py-2 rounded-full bg-nitroPink transition ease-in-out hover:-translate-y-1 hover:shadow-xl hover:bg-nitroPink/80 duration-300">
+                            <button
+                                data-sellix-product="66f6195161813"
+                                type="submit"
+                                className="text-lg text-white px-20 py-2 rounded-full bg-nitroPink transition ease-in-out hover:-translate-y-1 hover:shadow-xl hover:bg-nitroPink/80 duration-300"
+                                alt="Buy Now with sellix.io"
+                            >
                                 Purchase
-                            </a>
+                            </button>
+
                             {product.desc && (
                                 <ul className="flex flex-col gap-2 font-semibold">
                                     {product.desc.map((d, i) => (

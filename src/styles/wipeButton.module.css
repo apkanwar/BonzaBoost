@@ -3,6 +3,7 @@
     overflow: hidden;
     z-index: 1;
     transition: color 0.4s ease;
+    border-radius: 12px;
 }
 
 .wipeButton::before,

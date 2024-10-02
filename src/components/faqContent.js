@@ -1,8 +1,12 @@
+import { useIsVisible } from '@/lib/useIsVisible';
 import { Disclosure } from '@headlessui/react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function FAQContent() {
   const [faqQA, setFAQ] = useState([]);
+
+  const ref = useRef();
+  const isVisible = useIsVisible(ref);
 
   useEffect(() => {
     fetchFAQ();
@@ -22,7 +26,7 @@ export default function FAQContent() {
   };
 
   return (
-    <div className="mx-auto max-w-5xl px-6 pt-24 pb-12 bg-transparent text-white">
+    <div ref={ref} className={`${isVisible ? "opacity-100" : "opacity-0"} transition-opacity ease-in duration-1000 mx-auto max-w-5xl px-6 pt-48 pb-12 bg-transparent text-white`}>
       <div className="space-y-4">
         {faqQA.map((q) => (
           <Disclosure key={q.id}>
@@ -44,7 +48,7 @@ export default function FAQContent() {
                     />
                   </svg>
                 </Disclosure.Button>
-                <Disclosure.Panel className="text-lg font-dText bg-transparent pb-3">
+                <Disclosure.Panel className="text-lg font-main bg-transparent pb-3">
                   {open ? (
                     <p className="whitespace-pre-line text-gray-300 text-xl">{q.answer}</p>
                   ) : null}

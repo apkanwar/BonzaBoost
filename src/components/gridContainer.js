@@ -8,8 +8,8 @@ const GridContainer = ({ heading, details, icon }) => {
             </div>
 
             <div className="flex flex-col gap-2 py-4">
-                <h2 className="font-dText text-2xl font-bold h-8 text-white">{heading}</h2>
-                <p className="font-dText text-gray-300">{details}</p>
+                <h2 className="font-main text-2xl font-bold h-8 text-white">{heading}</h2>
+                <p className="font-main text-gray-300">{details}</p>
             </div>
         </div>
     );

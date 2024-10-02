@@ -10,9 +10,11 @@ module.exports = withMT({
   theme: {
     extend: {
       colors: {
-        'dMode': '#282B30',
-        'dPurple': '#5B209A',
-        'nitroPink': '#FF65FF'
+        'dMode': '#2A1B3D',
+        'dPurple': '#8860d0',
+        'nitroPink': '#FF65FF',
+        'artic-blue': '#F0F8FF',
+        'dDark': '#2C2F33'
       },
       fontFamily: {
         'headings': ['Rubik', 'sans-serif'],

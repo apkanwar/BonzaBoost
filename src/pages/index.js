@@ -39,13 +39,23 @@ export default function Home() {
       <InfoSection
         id="top"
         info={BannerInfo}
-        imgSrc={["/phone.png"]}
+        imgSrc={[{
+          url: "/phone.png",
+          size: "300",
+          rounded: ""
+        }]}
         infoSide="left"
       />
       <InfoSection
         id="about"
         info={AboutInfo}
-        imgSrc={["/phone.png"]}
+        imgSrc={[{
+          url: "/boostRing.png",
+          size: "400",
+          rounded: "rounded-full"
+        }]}
+        imgSize={300}
+        rounded
         infoSide="right"
       />
       <Features />

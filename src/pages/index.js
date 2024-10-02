@@ -19,13 +19,11 @@ export default function Home() {
     {
       title: "We are your new favorite Discord supplier",
       subtitle: "Having been in the market for more than 24 months, our server boosting service is widely acknowledged as the most reliable, respected, and renowned option in the entire industry.",
-      hSize: 'text-4xl',
+      hSize: 'text-[48px]',
       listItems: [
-        'The type of work required',
-        'Volume of work required',
-        'Regularity of the assignment (part-time or full-time)',
-        'Length of the assignment (temporary or long-term)',
-        'Consideration of special skill sets or certifications'
+        'Affordable Pricing',
+        'Automatic delivery',
+        'Premium Customer Support'
       ]
     }
   ];

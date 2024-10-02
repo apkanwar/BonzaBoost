@@ -11,14 +11,14 @@ const OneMonthBoost = ({ products }) => {
                     <button
                         data-sellix-product={p.id}
                         type="submit"
-                        className="text-lg text-white px-20 py-2 rounded-full bg-nitroPink transition ease-in-out hover:-translate-y-1 hover:shadow-xl hover:bg-nitroPink/80 duration-300"
+                        className="text-lg text-white font-headings font-semibold px-20 py-2 rounded-full bg-nitroPink transition ease-in-out hover:-translate-y-1 hover:shadow-xl hover:bg-nitroPink/80 duration-300"
                         alt="Buy Now with sellix.io"
                     >
                         Purchase
                     </button>
 
                     {p.desc && (
-                        <ul className="flex flex-col gap-2 font-semibold">
+                        <ul className="flex flex-col gap-2 font-semibold font-main">
                             {p.desc.map((d, i) => (
                                 <li key={i} className="flex items-center gap-2">
                                     <SvgIcon>

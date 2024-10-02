@@ -1,7 +1,13 @@
 import { useIsVisible } from "@/lib/useIsVisible";
-import { CheckIcon } from "@heroicons/react/24/outline";
-import { SvgIcon } from "@mui/material";
 import { useState, useEffect, useRef } from "react";
+import OneMonthBoost from "./productComponents/oneMonthBoost";
+import ThreeMonthBoost from "./productComponents/threeMonthBoost";
+import SixMonthBoost from "./productComponents/sixMonthBoost";
+import YearBoost from "./productComponents/yearBoost";
+import LifetimeBoost from "./productComponents/lifetimeBoost";
+import Members from "./productComponents/members";
+import Nitro from "./productComponents/nitro";
+import YouTube from "./productComponents/youtube";
 
 export default function Products() {
     const [products, setProducts] = useState([]);
@@ -50,7 +56,7 @@ export default function Products() {
                     <div
                         key={index}
                         onClick={() => handleCategoryClick(p.category)}
-                        className={`px-8 py-2 flex text-lg text-white font-main items-center justify-center rounded-full cursor-pointer ${selectedCategory === p.category ? 'bg-nitroPink' : 'bg-white/10 hover:bg-white/20'} shadow-lg select-none`}>
+                        className={`px-8 py-2 flex text-lg text-white font-main font-semibold items-center justify-center rounded-full cursor-pointer ${selectedCategory === p.category ? 'bg-nitroPink' : 'bg-white/10 hover:bg-white/20'} shadow-lg select-none`}>
                         {p.category}
                     </div>
                 ))}
@@ -58,35 +64,23 @@ export default function Products() {
 
             {/* Products for Selected Category */}
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mx-auto my-8 max-w-7xl">
-                {filteredProducts.length > 0 && (
-                    filteredProducts.map((product, index) => (
-                        <div key={index} className="flex flex-col gap-6 bg-purple-900 text-white p-6 rounded-lg shadow-lg">
-                            <h2 className="text-lg font-headings">{product.name}</h2>
-                            <p className="text-5xl font-numbers">{product.price}</p>
-                            <button
-                                data-sellix-product="66f6195161813"
-                                type="submit"
-                                className="text-lg text-white px-20 py-2 rounded-full bg-nitroPink transition ease-in-out hover:-translate-y-1 hover:shadow-xl hover:bg-nitroPink/80 duration-300"
-                                alt="Buy Now with sellix.io"
-                            >
-                                Purchase
-                            </button>
-
-                            {product.desc && (
-                                <ul className="flex flex-col gap-2 font-semibold">
-                                    {product.desc.map((d, i) => (
-                                        <li key={i} className="flex items-center gap-2">
-                                            <SvgIcon>
-                                                <CheckIcon />
-                                            </SvgIcon>
-                                            <span>{d}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            )}
-                        </div>
-                    ))
-                )}
+                {selectedCategory == '1 Month Boost' ? (
+                    <OneMonthBoost products={filteredProducts} />
+                ) : selectedCategory == '3 Month Boost' ? (
+                    <ThreeMonthBoost products={filteredProducts} />
+                ) : selectedCategory == '6 Month Boost' ? (
+                    <SixMonthBoost products={filteredProducts} />
+                ) : selectedCategory == '1 Year Boost' ? (
+                    <YearBoost products={filteredProducts} />
+                ) : selectedCategory == 'Lifetime Boost' ? (
+                    <LifetimeBoost products={filteredProducts} />
+                ) : selectedCategory == 'Members' ? (
+                    <Members products={filteredProducts} />
+                ) : selectedCategory == 'Nitro' ? (
+                    <Nitro products={filteredProducts} />
+                ) : selectedCategory == 'YouTube' ? (
+                    <YouTube products={filteredProducts} />
+                ) : null}
             </div>
         </div>
     )

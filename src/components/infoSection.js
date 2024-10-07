@@ -45,7 +45,7 @@ const InfoSection = ({ id, info, imgSrc, infoSide }) => {
             <div className="w-full md:w-2/5 px-6">
                 <div className='flex flex-col gap-8'>
                     {imgSrc.map((image, index) => (
-                        <Image key={index} width={image.size} height={0} src={image.url} priority={true} alt={"Info Image"} className={`${image.rounded} shadow-lg mx-auto`} />
+                        <Image key={index} width={image.size} height={image.size} src={image.url} priority={true} alt={"Info Image"} className={`${image.rounded} shadow-lg mx-auto`} />
                     ))}
                 </div>
             </div>

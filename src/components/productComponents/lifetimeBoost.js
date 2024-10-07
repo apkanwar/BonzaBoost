@@ -6,20 +6,27 @@ const LifetimeBoost = ({ products }) => {
         <>
             {products.map((p, index) => (
                 <div key={index} className="flex flex-col gap-6 bg-purple-900 text-white p-6 rounded-lg shadow-lg">
-                    <h2 className="text-lg font-headings">{p.name}</h2>
-                    <p className="text-5xl font-numbers">{p.price}</p>
+                    <h2 className="text-lg font-headings">{p.title}</h2>
+                    <div className='flex flex-row justify-between items-center'>
+                        <p className="text-4xl font-numbers">${p.price}</p>
+                        {p.price_discount !== 0 && (
+                            <div className={`px-2 h-fit w-fit uppercase bg-green-100 text-green-700 border border-green-700 rounded`}>
+                                {p.price_discount}% Off
+                            </div>
+                        )}
+                    </div>
                     <button
-                        data-sellix-product={p.id}
+                        data-sellix-product={p.uniqid}
                         type="submit"
-                        className="text-lg text-white px-20 py-2 rounded-full bg-nitroPink transition ease-in-out hover:-translate-y-1 hover:shadow-xl hover:bg-nitroPink/80 duration-300"
+                        className="text-lg text-white font-headings font-semibold px-20 py-2 rounded-full bg-nitroPink transition ease-in-out hover:-translate-y-1 hover:shadow-xl hover:bg-nitroPink/80 duration-300"
                         alt="Buy Now with sellix.io"
                     >
                         Purchase
                     </button>
 
-                    {p.desc && (
+                    {p.description && (
                         <ul className="flex flex-col gap-2 font-semibold">
-                            {p.desc.map((d, i) => (
+                            {p.description.split(', ').map((d, i) => (
                                 <li key={i} className="flex items-center gap-2">
                                     <SvgIcon>
                                         <CheckIcon />

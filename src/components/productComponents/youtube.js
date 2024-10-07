@@ -15,14 +15,25 @@ const YouTube = ({ products }) => {
                             </div>
                         )}
                     </div>
-                    <button
-                        data-sellix-product={p.uniqid}
-                        type="submit"
-                        className="text-lg text-white font-headings font-semibold px-20 py-2 rounded-full bg-nitroPink transition ease-in-out hover:-translate-y-1 hover:shadow-xl hover:bg-nitroPink/80 duration-300"
-                        alt="Buy Now with sellix.io"
-                    >
-                        Purchase
-                    </button>
+                    {p.stock > 0 ? (
+                        <button
+                            data-sellix-product={p.uniqid}
+                            type="submit"
+                            className="text-lg text-white font-headings font-semibold px-20 py-2 rounded-full bg-nitroPink transition ease-in-out hover:-translate-y-1 hover:shadow-xl hover:bg-nitroPink/80 duration-300"
+                            alt="Buy Now with sellix.io"
+                        >
+                            Purchase
+                        </button>
+                    ) :
+                        <div
+                            data-sellix-product={p.uniqid}
+                            type="submit"
+                            className="text-lg text-white font-headings font-semibold px-20 py-2 rounded-full bg-gray-600 transition ease-in-out hover:-translate-y-1 hover:shadow-xl hover:bg-gray-500 duration-300"
+                            alt="Buy Now with sellix.io"
+                        >
+                            Sold Out
+                        </div>
+                    }
 
                     {p.description && (
                         <ul className="flex flex-col gap-2 font-semibold">

@@ -9,7 +9,7 @@ import Footer from "@/components/footer";
 export default function Home() {
   const BannerInfo = [
     {
-      title: "Get Server boosts at a Discount",
+      title: "Get Server Boosts at a Discount",
       subtitle: "Get a cheap Discord boosting experience at a fraction of the cost of the normal server boosts",
       buttons: true,
       hSize: 'text-6xl'

@@ -44,7 +44,10 @@ export default function Products() {
     const handleCategoryClick = (group) => {
         setSelectedCategory(group.title);
         const sortedProducts = [...group.products_bound].sort((a, b) => Number(a.price) - Number(b.price));
-        setFilteredProducts(sortedProducts);
+        if (group.title =="Nitro")
+            setFilteredProducts(group.products_bound);
+        else
+            setFilteredProducts(sortedProducts);
     };
 
     return (

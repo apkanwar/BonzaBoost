@@ -8,7 +8,7 @@ export default function FAQ() {
     return (
         <>
             <Head>
-                <title>Ensured Employment</title>
+                <title>FAQ - Bonza Boost</title>
             </Head>
 
             <RoundedNavbar />

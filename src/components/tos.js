@@ -1,4 +1,3 @@
-import styles from "@/styles/wipeButton.module.css";
 
 const TOS = () => {
     return (
@@ -19,7 +18,7 @@ const TOS = () => {
                     As a retailer of digital products, we reserve a right to sell under the guidance of these terms of service. By using our services you automatically agree to these terms and policies. Breaking any rules or terms might result in a ban/blacklist from the support server and refusal to further provide our services.
                 </li>
                 <li className="pl-4">
-                    This User Agreement (“Agreement”), the BonzaBoost Store Privacy Policy, and all policies posted on our websites set out the terms and conditions on which we offer you access to and use of my sites, services, applications and tools (collectively “Services”). This Agreement is entered into between you as the user of our services (“User”) and BonzaBoost (“CB, nvck, BonzaBoost"). All policies and the Privacy Policy are incorporated into this User Agreement. You agree to comply with all of the above when accessing and using our services.
+                    This User Agreement (&quot;Agreement&quot;), the BonzaBoost Store Privacy Policy, and all policies posted on our websites set out the terms and conditions on which we offer you access to and use of my sites, services, applications and tools (collectively &quot;Services&quot;). This Agreement is entered into between you as the user of our services (&quot;User&quot;) and BonzaBoost (&quot;CB, nvck, BonzaBoost"). All policies and the Privacy Policy are incorporated into this User Agreement. You agree to comply with all of the above when accessing and using our services.
                 </li>
                 <li className="pl-4">
                     Acceptance of the Agreement. By accessing or using the service, you hereby agree to accept the terms and conditions set forth in this Agreement as a User. You shall be bound by the terms and conditions of this Agreement with respect to your access or use of this server and any further modification, addition or change to this service. If you do not accept all of the terms and conditions of this Agreement, please do not use these services.
@@ -55,7 +54,7 @@ const TOS = () => {
                             The product has exceeded its warranty period
                         </li>
                         <li className="pl-2">
-                            The boosted server was lost under buyer’s ownership
+                            The boosted server was lost under buyer&apos;s ownership
                         </li>
                         <li className="pl-2">
                             Contacting any kind of support on the websites we advertise on or leaving any kind of negative feedback is considered that a support case has been solved and closed without a satisfactory result and no additional support may be provided, furthermore a blacklist from our store may be issued
@@ -85,13 +84,10 @@ const TOS = () => {
                     No spamming
                 </li>
                 <li className="pl-4">
-                    Do not use words such as “Token”, “Cheater”, “Cheating”, “Hack”, “Hacker”, “Carding”, “Cracking”, “Cracked”, “Cracker”, “Carding” etc…
+                    Do not use words such as &quot;Token&quot;, &quot;Cheater&quot;, &quot;Cheating&quot;, &quot;Hack&quot;, &quot;Hacker&quot;, &quot;Carding&quot;, &quot;Cracking&quot;, &quot;Cracked&quot;, &quot;Cracker&quot;, &quot;Carding&quot; etc…
                 </li>
                 <li className="pl-4">
                     Act accordingly ( no excessive swearing, hate, etc… )
-                </li>
-                <li className="pl-4">
-                    We (“me, nvck”, “staff”, ”BonzaBoost”) can remove any chat message or links without giving any reason for deletion. Ticket rules
                 </li>
                 <li className="pl-4">
                     Do not spam, every message is being read when possible
@@ -103,7 +99,7 @@ const TOS = () => {
                     If you are trying to solve a problem with your order please try to explain your issue in calm and orderly manner
                 </li>
                 <li className="pl-4">
-                    Every ticket will be replied to within 7 days of the customer's last message. We are not bound to solve the ticket within any set timeframe. Please note that we always try to solve every support ticket as soon as possible.
+                    Every ticket will be replied to within 7 days of the customer&apos;s last message. We are not bound to solve the ticket within any set timeframe. Please note that we always try to solve every support ticket as soon as possible.
                 </li>
             </ol>
 

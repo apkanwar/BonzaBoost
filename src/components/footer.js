@@ -14,9 +14,9 @@ export default function Footer() {
                         2024 BonzaBoost
                     </div>
                     <div className="text-xl font-normal text-white inline-block lg:pl-6">
-                        <div className="inline-block cursor-pointer pr-3">
+                        <Link href={'/terms-of-service'} className="inline-block cursor-pointer pr-3 hover:text-gray-400">
                             Terms of Service
-                        </div>
+                        </Link>
                     </div>
                 </div>
 

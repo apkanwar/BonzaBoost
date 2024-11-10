@@ -78,7 +78,7 @@ export default function Products() {
                         <div
                             key={group.id}
                             onClick={() => handleCategoryClick(group)}
-                            className={`px-8 py-2 flex text-lg text-white font-main font-semibold items-center justify-center rounded-full cursor-pointer ${selectedCategory === group.name ? 'bg-nitroPink' : 'bg-white/10 hover:bg-white/20'} shadow-lg select-none`}>
+                            className={`px-8 py-2 flex text-lg text-white font-main font-semibold items-center text-center justify-center rounded-full cursor-pointer ${selectedCategory === group.name ? 'bg-nitroPink' : 'bg-white/10 hover:bg-white/20'} shadow-lg select-none`}>
                             {group.name.substring(3)}
                         </div>
                     ))

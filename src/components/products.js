@@ -11,16 +11,6 @@ export default function Products() {
     const ref = useRef();
     const isVisible = useIsVisible(ref);
 
-    useEffect(() => {
-        fetchGroups();
-        const handleEscapeKey = (event) => {
-            if (event.key === 'Escape')
-                handleCloseModal();
-        };
-        window.addEventListener('keydown', handleEscapeKey);
-        return () => window.removeEventListener('keydown', handleEscapeKey);
-    }, []);
-
     const fetchGroups = async () => {
         try {
             const response = await fetch('/api/billgang-categories');
@@ -64,6 +54,16 @@ export default function Products() {
             bodyElement.style.overflow = "auto";
         }
     };
+
+    useEffect(() => {
+        fetchGroups();
+        const handleEscapeKey = (event) => {
+            if (event.key === 'Escape')
+                handleCloseModal();
+        };
+        window.addEventListener('keydown', handleEscapeKey);
+        return () => window.removeEventListener('keydown', handleEscapeKey);
+    }, []);
 
     return (
         <div ref={ref} id="products" className={`${isVisible ? "opacity-100" : "opacity-0"} transition-opacity ease-in duration-1000 flex flex-col items-center justify-center py-12 xl:py-24 mx-4`}>

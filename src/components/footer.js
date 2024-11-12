@@ -31,12 +31,15 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
-            <div className="mx-auto flex max-w-7xl items-center justify-between pb-16 px-16 lg:px-8">
-                <div className="text-sm font-normal text-white inline-block mt-4">
+            <div className="flex-col mx-auto flex max-w-7xl justify-between pb-16 px-16 lg:px-8">
+                <div className="text-sm font-normal text-white inline-block mt-4 text-left">
                     <div className="inline-block pr-3">
                         Disclaimer: This website is in no way affiliated with, authorized, maintained, sponsored or endorsed by Discord Inc. (discord.com) or any of its affiliates or subsidiaries.
                     </div>
                 </div>
+                <h1 className='text-center text-white pt-6'>
+                    Created By <Link href={'https://www.rezpoint.xyz'} className='hover:underline hover:underline-offset-4'>RezPoint</Link>
+                </h1>
             </div>
         </footer >
     )

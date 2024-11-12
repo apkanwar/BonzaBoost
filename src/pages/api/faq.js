@@ -43,7 +43,7 @@ export default function handler(req, res) {
         {
             id: 9,
             question: 'Why do we only have the Friends and Family for paying on PayPal?',
-            answer: 'We tried it Sending PayPal Goods and services allowed people to commit fraud by refunding after receiving the product. To stop this we only accept PayPal F&F'
+            answer: 'We tried it in the past. Sending PayPal Goods and Services allowed people to commit fraud by refunding after receiving the product. To stop this we only accept PayPal F&F'
         }
     ]
     res.status(200).json({ FAQ })

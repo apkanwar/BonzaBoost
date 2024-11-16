@@ -6,7 +6,6 @@ const GTM = () => {
   return (
     <>
       <Head>
-        <title>Google analytics nextjs script</title>
         <meta name="robots" content="noindex" key="robots" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta
@@ -15,11 +14,10 @@ const GTM = () => {
           key="viewport"
         />
         <meta content="yes" name="apple-mobile-web-app-capable" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Script
         strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=G-D4DH8C5BXL`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TRACKING_ID}`}
       />
       <Script
         id="ga-tracking"
@@ -29,7 +27,7 @@ const GTM = () => {
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-D4DH8C5BXL', {
+        gtag('config', '${process.env.NEXT_PUBLIC_GA_TRACKING_ID}', {
             page_path: window.location.pathname,
         });
         `,

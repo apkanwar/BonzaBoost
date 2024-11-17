@@ -32,7 +32,7 @@ export default function Products() {
 
             const productResponses = await Promise.all(
                 selfCreatedGroups.map(group =>
-                    fetch(`/api/billgang-products?categoryId=${encodeURIComponent(group.id)}`)
+                    fetch(`/api/billgang-products?categoryId=${group.id}`)
                 )
             );
 

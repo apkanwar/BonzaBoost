@@ -1,47 +1,54 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useIsVisible } from "@/lib/useIsVisible";
-import { CheckIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { XMarkIcon } from '@heroicons/react/24/outline';
 import { SvgIcon } from '@mui/material';
+import ProductCard from "./productCard";
 
 export default function Products() {
     const [groups, setGroups] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState(null);
-    const [filteredProducts, setFilteredProducts] = useState(null);
+    const [products, setProducts] = useState(null);
+
     const [buttonVisible, setButtonVisible] = useState(false);
     const ref = useRef();
     const isVisible = useIsVisible(ref);
 
+    const handleCategoryClick = useCallback((group) => {
+        setSelectedCategory(group.name);
+    }, [products]);
+
+    const filteredProducts = selectedCategory && products
+        ? products[selectedCategory]
+        : [];
+
     const fetchGroups = async () => {
         try {
             const response = await fetch('/api/billgang-categories');
-            if (!response.ok) {
-                throw new Error('Failed to Fetch Groups');
-            }
+            if (!response.ok) throw new Error('Failed to Fetch Groups');
+
             const allGroups = await response.json();
             const selfCreatedGroups = allGroups.filter(group => !group.name.includes('All'));
             setGroups(selfCreatedGroups);
+
+            const productResponses = await Promise.all(
+                selfCreatedGroups.map(group =>
+                    fetch(`/api/billgang-products?categoryId=${encodeURIComponent(group.id)}`)
+                )
+            );
+
+            let data = {};
+            for (let i = 0; i < productResponses.length; i++) {
+                const response = productResponses[i];
+                if (!response.ok) throw new Error('Failed to Fetch Products');
+                const products = await response.json();
+                data[selfCreatedGroups[i].name] = products;
+            }
+
+            setProducts(data);
             handleCategoryClick(selfCreatedGroups[0]);
         } catch (error) {
             console.error('Error Fetching Groups:', error);
         }
-    };
-
-    const fetchProductsForGroup = async (categoryId) => {
-        try {
-            const response = await fetch(`/api/billgang-products?categoryId=${encodeURIComponent(categoryId)}`);
-            if (!response.ok) {
-                throw new Error('Failed to Fetch Products');
-            }
-            const selectedProducts = await response.json();
-            setFilteredProducts(selectedProducts);
-        } catch (error) {
-            console.error('Error Fetching Groups:', error);
-        }
-    };
-
-    const handleCategoryClick = async (group) => {
-        setSelectedCategory(group.name);
-        await fetchProductsForGroup(group.id);
     };
 
     const handleCloseModal = () => {
@@ -88,38 +95,11 @@ export default function Products() {
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mx-auto my-8 max-w-7xl">
                 {filteredProducts && filteredProducts.length > 0 ? (
                     filteredProducts.map((product, index) => (
-                        <div key={index} className="flex flex-col gap-6 bg-purple-900 text-white p-6 rounded-lg shadow-lg">
-                            <h2 className="text-lg font-headings">{product.name}</h2>
-                            <p className="text-4xl font-numbers">${product.minPrice.amount}</p>
-                            {product.isInStock ? (
-                                <button
-                                    data-billgang-product-path={product.uniquePath}
-                                    data-billgang-domain="bonzaboost.bgng.io"
-                                    onClick={() => setButtonVisible(true)}
-                                    className="text-lg text-white font-headings font-semibold px-20 py-2 rounded-full bg-nitroPink transition ease-in-out hover:-translate-y-1 hover:shadow-xl hover:bg-nitroPink/80 duration-300"
-                                >
-                                    Purchase
-                                </button>
-                            ) :
-                                <div
-                                    className="text-lg text-white font-headings font-semibold px-20 py-2 rounded-full bg-gray-600 transition ease-in-out hover:-translate-y-1 hover:shadow-xl hover:bg-gray-500 duration-300"
-                                >
-                                    Sold Out
-                                </div>
-                            }
-                            {product.shortDescription && (
-                                <ul className="flex flex-col gap-2 font-semibold font-main">
-                                    {product.shortDescription.split(', ').map((d, i) => (
-                                        <li key={i} className="flex items-center gap-2">
-                                            <SvgIcon>
-                                                <CheckIcon />
-                                            </SvgIcon>
-                                            <span>{d}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            )}
-                        </div>
+                        <ProductCard
+                            key={product.id}
+                            product={product}
+                            onPurchase={() => setButtonVisible(true)}
+                        />
                     ))
                 ) : (
                     <>

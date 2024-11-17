@@ -20,7 +20,6 @@ export default function Products() {
             const allGroups = await response.json();
             const selfCreatedGroups = allGroups.filter(group => !group.name.includes('All'));
             setGroups(selfCreatedGroups);
-            console.log(selfCreatedGroups);
             handleCategoryClick(selfCreatedGroups[0]);
         } catch (error) {
             console.error('Error Fetching Groups:', error);
@@ -28,23 +27,22 @@ export default function Products() {
     };
 
     const fetchProductsForGroup = async (categoryId) => {
-        console.log(categoryId)
         try {
             const response = await fetch(`/api/billgang-products?categoryId=${encodeURIComponent(categoryId)}`);
             if (!response.ok) {
                 throw new Error('Failed to Fetch Products');
             }
             const selectedProducts = await response.json();
-            console.log(selectedProducts)
             setFilteredProducts(selectedProducts);
         } catch (error) {
             console.error('Error Fetching Groups:', error);
         }
     };
 
-    const handleCategoryClick = (group) => {
+    const handleCategoryClick = async (group) => {
         setSelectedCategory(group.name);
-        fetchProductsForGroup(group.id);
+        setFilteredProducts(null); // Clear previous products
+        await fetchProductsForGroup(group.id);
     };
 
     const handleCloseModal = () => {
@@ -125,14 +123,8 @@ export default function Products() {
                         </div>
                     ))
                 ) : (
-                    <div className="grid grid-cols-subgrid gap-4 col-span-1 md:col-span-3 lg:col-span-4 text-center">
-                        <p className="text-2xl font-main font-bold text-white">
-                            No products available for this category.
-                        </p>
-                        <p className="text-2xl font-main font-bold text-white">
-                            Check back soon!
-                        </p>
-                    </div>
+                    <>
+                    </>
                 )}
             </div>
             {buttonVisible && (

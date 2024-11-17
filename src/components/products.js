@@ -30,6 +30,7 @@ export default function Products() {
     const fetchProductsForGroup = async (categoryId) => {
         try {
             const response = await fetch(`/api/billgang-products?categoryId=${encodeURIComponent(categoryId)}`);
+            console.log(categoryId)
             if (!response.ok) {
                 throw new Error('Failed to Fetch Products');
             }

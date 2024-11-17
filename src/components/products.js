@@ -19,7 +19,6 @@ export default function Products() {
             }
             const allGroups = await response.json();
             const selfCreatedGroups = allGroups.filter(group => !group.name.includes('All'));
-            console.log(selfCreatedGroups)
             setGroups(selfCreatedGroups);
             handleCategoryClick(selfCreatedGroups[0]);
         } catch (error) {
@@ -30,13 +29,11 @@ export default function Products() {
     const fetchProductsForGroup = async (categoryId) => {
         try {
             const response = await fetch(`/api/billgang-products?categoryId=${encodeURIComponent(categoryId)}`);
-            console.log(categoryId)
             if (!response.ok) {
                 throw new Error('Failed to Fetch Products');
             }
             const selectedProducts = await response.json();
             setFilteredProducts(selectedProducts);
-            console.log(selectedProducts)
         } catch (error) {
             console.error('Error Fetching Groups:', error);
         }

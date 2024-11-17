@@ -5,9 +5,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <link rel="Shortcut Icon" href="logo.png" />
-        <meta name="google-site-verification" content="UL6ufNflon0lTU1RFa4byLOk_3eG6eoNPz-vnFyLh8w" />
-        
+        <link rel="Shortcut Icon" href="logo.png" />        
       </Head>
       <body className="bg-dMode">
         <Main />

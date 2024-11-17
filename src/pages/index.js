@@ -5,7 +5,6 @@ import Features from "@/components/features";
 import Contact from "@/components/contact";
 import Products from "@/components/products";
 import Footer from "@/components/footer";
-import { GTM } from "@/lib/google-tag-manager";
 
 export default function Home() {
   const BannerInfo = [

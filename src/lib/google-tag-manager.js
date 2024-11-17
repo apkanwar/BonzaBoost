@@ -15,6 +15,7 @@ const GTM = () => {
         />
         <meta content="yes" name="apple-mobile-web-app-capable" />
       </Head>
+      <Script src="https://platform.billgang.com/embed.js" strategy="beforeInteractive" />
       <Script
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TRACKING_ID}`}

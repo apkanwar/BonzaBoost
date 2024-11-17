@@ -34,7 +34,6 @@ export default function Home() {
       <Head>
         <title>Bonza Boost</title>
       </Head>
-      <GTM />
       <RoundedNavbar links />
       <InfoSection
         id="top"

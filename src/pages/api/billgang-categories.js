@@ -2,7 +2,7 @@ export default async function handler(req, res) {
     try {
         const response = await fetch('https://pg-api.billgang.com/v1/dash/shops/3a31d58c-9273-4d74-bb78-2c55aad39453/categories', {
             headers: {
-                Authorization: `Bearer ${process.env.BILLGANG_API_KEY}`
+                Authorization: `Bearer ${process.env.NEXT_PUBLIC_BILLGANG_API_KEY}`
             }
         });
         if (!response.ok) {

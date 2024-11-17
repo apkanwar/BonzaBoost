@@ -41,7 +41,6 @@ export default function Products() {
 
     const handleCategoryClick = async (group) => {
         setSelectedCategory(group.name);
-        setFilteredProducts(null); // Clear previous products
         await fetchProductsForGroup(group.id);
     };
 

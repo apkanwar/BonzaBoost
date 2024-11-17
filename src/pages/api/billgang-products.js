@@ -7,7 +7,7 @@ export default async function handler(req, res) {
     try {
         const response = await fetch(url, {
             headers: {
-                'Cache-Control': 'no-cache',
+                'Cache-Control': 'no-cache, no-store, must-revalidate',
                 Authorization: `Bearer ${process.env.NEXT_PUBLIC_BILLGANG_API_KEY}`
             }
         });

@@ -19,6 +19,7 @@ export default function Products() {
             }
             const allGroups = await response.json();
             const selfCreatedGroups = allGroups.filter(group => !group.name.includes('All'));
+            console.log(selfCreatedGroups)
             setGroups(selfCreatedGroups);
             handleCategoryClick(selfCreatedGroups[0]);
         } catch (error) {

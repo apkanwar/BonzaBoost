@@ -14,7 +14,7 @@ export default function Products() {
     const isVisible = useIsVisible(ref);
 
     const handleCategoryClick = useCallback((group) => {
-        setSelectedCategory(group);
+        setSelectedCategory(group.name);
     }, [products]);
 
     const filteredProducts = selectedCategory && products
@@ -45,29 +45,9 @@ export default function Products() {
             }
 
             setProducts(data);
-            console.log(data)
             handleCategoryClick(selfCreatedGroups[0]);
         } catch (error) {
             console.error('Error Fetching Groups:', error);
-        }
-    };
-
-    const fetchProducts = async () => {
-        try {
-            const response = await fetch('/api/static-products');
-            if (!response.ok) {
-                throw new Error('Failed to Fetch Data');
-            }
-            let data = await response.json();
-            setProducts(data.StaticProducts[0]);
-            data = data.StaticProducts[0]
-
-            const fetchedGroups = Object.keys(data)
-            setGroups(fetchedGroups)
-            
-            handleCategoryClick(fetchedGroups[0])
-        } catch (error) {
-            console.error('Error Fetching Data:', error);
         }
     };
 
@@ -82,7 +62,7 @@ export default function Products() {
     };
 
     useEffect(() => {
-        fetchProducts();
+        fetchGroups();
         const handleEscapeKey = (event) => {
             if (event.key === 'Escape')
                 handleCloseModal();
@@ -102,10 +82,10 @@ export default function Products() {
                 {groups && groups.length > 0 ? (
                     groups.map((group) => (
                         <div
-                            key={group}
+                            key={group.id}
                             onClick={() => handleCategoryClick(group)}
-                            className={`px-8 py-2 flex text-lg text-white font-main font-semibold items-center text-center justify-center rounded-full cursor-pointer ${selectedCategory === group ? 'bg-nitroPink' : 'bg-white/10 hover:bg-white/20'} shadow-lg select-none`}>
-                            {group.substring(3)}
+                            className={`px-8 py-2 flex text-lg text-white font-main font-semibold items-center text-center justify-center rounded-full cursor-pointer ${selectedCategory === group.name ? 'bg-nitroPink' : 'bg-white/10 hover:bg-white/20'} shadow-lg select-none`}>
+                            {group.name.substring(3)}
                         </div>
                     ))
                 ) : null}

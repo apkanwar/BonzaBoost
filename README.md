@@ -1,5 +1,5 @@
 # BonzaBoost
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/7d4273a8-8351-4d20-a220-9ffbfa576fb4/deploy-status)](https://app.netlify.com/sites/bonzaboost/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e48685dc-de71-43fe-b0e0-5469378c4295/deploy-status)](https://app.netlify.com/sites/bonzaboost/deploys)
 
 Built by RezPoint Inc.

@@ -3,7 +3,7 @@ import HelpIcon from '@mui/icons-material/Help';
 import Image from 'next/image';
 import Link from 'next/link'
 
-const RoundedNavbar = ({ links }) => {
+const RoundedNavbar = ({ links, faq }) => {
     return (
         <div className='transition-none mt-4 mx-auto flex justify-center'>
             <header className="bg-dPurple text-white rounded-full w-[95vw] shadow-lg fixed z-[999]">
@@ -57,6 +57,15 @@ const RoundedNavbar = ({ links }) => {
                             <div className="hidden lg:flex lg:flex-1 lg:justify-end font-headings">
                                 <Link href={'https://www.discord.gg/Bonza'} target='_blank' className="font-medium text-lg px-6 py-2 rounded-full bg-nitroPink hover:bg-dMode transition ease-in duration-200">
                                     Join the Discord
+                                </Link>
+                            </div>
+                        )}
+
+                        {faq && (
+                            <div className="relative transition-none mr-8 lg:block hidden">
+                                <Link href={"/faq"} className='group transition duration-300'>
+                                    FAQ
+                                    <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white"></span>
                                 </Link>
                             </div>
                         )}

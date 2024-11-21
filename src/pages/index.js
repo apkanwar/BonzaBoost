@@ -34,7 +34,7 @@ export default function Home() {
       <Head>
         <title>Bonza Boost</title>
       </Head>
-      <GoogleTagManager gtmId="G-D4DH8C5BXL" />
+      <GoogleTagManager gtmId="AW-16778799212" />
       <RoundedNavbar links />
       <InfoSection
         id="top"

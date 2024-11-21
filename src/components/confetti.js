@@ -50,7 +50,7 @@ export default function Confetti() {
         <h1 className="text-5xl text-center font-bold text-white bg-opacity-50 px-4 py-2 rounded-md font-headings">
           Congrats on your Successful Purchase!
         </h1>
-        <Link href={'https://www.discord.gg/Bonza'} target='_blank' className="p-2 hover:bg-artic-blue rounded-md mx-2 cursor-pointer transition ease-in duration-200">
+        <Link href={'https://www.discord.gg/U2y7tVqrp5'} target='_blank' className="p-2 hover:bg-artic-blue rounded-md mx-2 cursor-pointer transition ease-in duration-200">
           <Image src={'/discord.svg'} width={'56'} height={'56'} className='my-2.5' alt='Discord Icon' />
         </Link>
       </div>

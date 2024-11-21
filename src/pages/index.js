@@ -5,6 +5,7 @@ import Features from "@/components/features";
 import Contact from "@/components/contact";
 import Products from "@/components/products";
 import Footer from "@/components/footer";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 export default function Home() {
   const BannerInfo = [
@@ -33,6 +34,7 @@ export default function Home() {
       <Head>
         <title>Bonza Boost</title>
       </Head>
+      <GoogleTagManager gtmId="G-D4DH8C5BXL" />
       <RoundedNavbar links />
       <InfoSection
         id="top"

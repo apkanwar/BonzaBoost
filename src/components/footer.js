@@ -8,7 +8,7 @@ export default function Footer() {
             <div className="mx-auto flex max-w-7xl items-center justify-between pt-16 px-16 lg:px-8">
                 <div className="flex flex-col gap-5 lg:gap-2">
                     <div className="text-2xl font-medium text-white">
-                        <Link href={'https://www.rezpoint.xyz/'} target='_blank' className='mr-2'>
+                        <Link href={'/purchase-successful'} className='mr-2'>
                             &#169;
                         </Link>
                         2024 BonzaBoost

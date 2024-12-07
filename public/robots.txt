@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://bonzaboost.cc/
+
+# Sitemaps
+Sitemap: https://bonzaboost.cc/sitemap.xml

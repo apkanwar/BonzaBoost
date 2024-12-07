@@ -37,9 +37,9 @@ export default function Footer() {
                         Disclaimer: This website is in no way affiliated with, authorized, maintained, sponsored or endorsed by Discord Inc. (discord.com) or any of its affiliates or subsidiaries.
                     </div>
                 </div>
-                <h1 className='text-center text-white pt-6'>
+                <h2 className='text-center text-white pt-6'>
                     Created By <Link href={'https://www.rezpoint.xyz'} className='hover:underline hover:underline-offset-4'>RezPoint</Link>
-                </h1>
+                </h2>
             </div>
         </footer >
     )

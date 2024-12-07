@@ -9,6 +9,7 @@ export default function FAQ() {
         <>
             <Head>
                 <title>FAQ - Bonza Boost</title>
+                <meta name="description" content="If you have any questions about our service, Check our our FAQ on how to get affordable server boosts."></meta>
             </Head>
 
             <RoundedNavbar />

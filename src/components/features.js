@@ -49,7 +49,7 @@ export default function Features() {
     return (
         <div ref={ref} id='features' className={`${isVisible ? "opacity-100" : "opacity-0"} transition-opacity ease-in duration-1000 flex flex-col items-center justify-center py-24 mx-4`}>
             <div className="max-w-7xl pb-12 items-center flex flex-col text-white">
-                <h1 className="font-headings text-4xl font-bold uppercase text-center mb-6">What sets us apart from other options</h1>
+                <h2 className="font-headings text-4xl font-bold uppercase text-center mb-6">What sets us apart from other options</h2>
             </div>
 
             <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-12 gap-y-16 max-w-7xl mx-4'>

@@ -74,7 +74,7 @@ export default function Products() {
     return (
         <div ref={ref} id="products" className={`${isVisible ? "opacity-100" : "opacity-0"} transition-opacity ease-in duration-1000 flex flex-col items-center justify-center py-12 xl:py-24 mx-4`}>
             <div className="max-w-7xl pb-12 items-center flex flex-col text-white">
-                <h1 className="font-headings text-4xl font-bold uppercase text-center mb-6">Get Started Today</h1>
+                <h2 className="font-headings text-4xl font-bold uppercase text-center mb-6">Get Started Today</h2>
             </div>
 
             {/* Groups */}

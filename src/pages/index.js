@@ -33,6 +33,7 @@ export default function Home() {
     <>
       <Head>
         <title>Bonza Boost</title>
+        <meta name="description" content="Bonza Boost is the place to safely get cheap and affordable server boosts."></meta>
       </Head>
       <GoogleTagManager gtmId="AW-16778799212" />
       <RoundedNavbar links />

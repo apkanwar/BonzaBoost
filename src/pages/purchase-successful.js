@@ -9,6 +9,7 @@ export default function PurchaseSuccessful() {
         <>
             <Head>
                 <title>Purchase Successful - Bonza Boost</title>
+                <meta name="description" content="Congrats on your successful purchase! Enjoy your product and let us know if you want anything else."></meta>
             </Head>
             <GoogleTagManager gtmId="AW-16778799212" />
             <RoundedNavbar faq />

@@ -13,7 +13,7 @@ const RoundedNavbar = ({ links, faq }) => {
                         <div className="flex lg:flex-1">
                             <Link href={"/"} className='flex flex-row items-center gap-4'>
                                 <Image width={48} height={48} src="/logo.png" alt="Logo" className='rounded-full' />
-                                <h1 className='font-bold font-headings text-xl'>BonzaBoost</h1>
+                                <h2 className='font-bold font-headings text-xl'>BonzaBoost</h2>
                             </Link>
                         </div>
                         <div className="flex lg:hidden">

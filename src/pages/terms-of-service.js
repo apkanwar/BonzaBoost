@@ -12,6 +12,7 @@ export default function FAQ() {
                 <meta name="apple-mobile-web-app-title" content="Your Page Title" />
                 <meta name="apple-mobile-web-app-status-bar-style" content="default" />
                 <meta name="format-detection" content="telephone=no" />
+                <meta name="description" content="Bonza Boost ToS"></meta>
             </Head>
 
             <RoundedNavbar />

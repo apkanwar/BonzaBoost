@@ -26,7 +26,8 @@ export default function FAQContent() {
   };
 
   return (
-    <div ref={ref} className={`${isVisible ? "opacity-100" : "opacity-0"} transition-opacity ease-in duration-1000 mx-auto max-w-5xl px-6 pt-48 pb-12 bg-transparent text-white`}>
+    <div ref={ref} className={`${isVisible ? "opacity-100" : "opacity-0"} transition-opacity ease-in duration-1000 mx-auto max-w-5xl px-6 pt-32 pb-12 bg-transparent text-white`}>
+      <h1 className='text-5xl font-headings font-semibold pb-16'>Frequently Asked Questions</h1>
       <div className="space-y-4">
         {faqQA.map((q) => (
           <Disclosure key={q.id}>

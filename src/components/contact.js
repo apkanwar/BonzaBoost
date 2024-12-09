@@ -21,7 +21,7 @@ export default function Contact() {
           </p>
         </div>
         <div className="p-8 w-full flex flex-col lg:flex-row gap-4 justify-center items-center rounded-b-xl">
-          <Link href={'/'} className="font-semibold text-center text-2xl text-white px-12 py-4 border-solid border-4 rounded-full hover:bg-dMode transition ease-in duration-200">
+          <Link href={'https://discord.gg/Bonzaboost'} className="font-semibold text-center text-2xl text-white px-12 py-4 border-solid border-4 rounded-full hover:bg-dMode transition ease-in duration-200">
             Join the Discord
           </Link>
         </div>

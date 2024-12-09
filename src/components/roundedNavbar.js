@@ -55,7 +55,7 @@ const RoundedNavbar = ({ links, faq }) => {
                         {/* Right Buttons */}
                         {links && (
                             <div className="hidden lg:flex lg:flex-1 lg:justify-end font-headings">
-                                <Link href={'https://www.discord.gg/Bonza'} target='_blank' className="font-medium text-lg px-6 py-2 rounded-full bg-nitroPink hover:bg-dMode transition ease-in duration-200">
+                                <Link href={'https://discord.gg/Bonzaboost'} target='_blank' className="font-medium text-lg px-6 py-2 rounded-full bg-nitroPink hover:bg-dMode transition ease-in duration-200">
                                     Join the Discord
                                 </Link>
                             </div>

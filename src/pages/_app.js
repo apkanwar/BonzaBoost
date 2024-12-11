@@ -18,6 +18,12 @@ export default function App({ Component, pageProps }) {
           gtag('config', 'AW-16778799212');
         `}
       </Script>
+
+      <Script id="crisp">
+        {`
+          window.$crisp=[];window.CRISP_WEBSITE_ID="0c5c017c-d065-43b6-a15b-813ffe7f25f0";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();
+        `}
+      </Script>
       <Component {...pageProps} />
     </main>
   )

@@ -22,7 +22,7 @@ export default function Footer() {
 
                 <div>
                     <div className="flex flex-col lg:flex-row">
-                        <Link href={'https://discord.gg/Bonzaboost'} target='_blank' className="p-2 hover:bg-artic-blue rounded-md mx-2 cursor-pointer transition ease-in duration-200">
+                        <Link href={'https://discord.gg/Bonza'} target='_blank' className="p-2 hover:bg-artic-blue rounded-md mx-2 cursor-pointer transition ease-in duration-200">
                             <Image src={'/discord.svg'} width={'56'} height={'56'} className='my-2.5' alt='Discord Icon' />
                         </Link>
                         <Link href={'https://t.me/bonzaboost'} target='_blank' className="p-2 hover:bg-artic-blue rounded-md mx-2 cursor-pointer transition ease-in duration-200">

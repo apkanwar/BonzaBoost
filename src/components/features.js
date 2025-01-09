@@ -26,7 +26,7 @@ export default function Features() {
         {
             "step": 4,
             "heading": "Easy Payment",
-            "details": "Ordering from us is easy. We accept all the major crypto, CashApp and PayPal",
+            "details": "Ordering from us is easy. We accept all the major Crypto, Stripe and PayPal",
             "icon": <BanknotesIcon />
         },
         {

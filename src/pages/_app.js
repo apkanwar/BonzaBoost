@@ -5,7 +5,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <main>
-      <Script
+      {/* <Script
         async
         src="https://www.googletagmanager.com/gtag/js?id=AW-16778799212"
       />
@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }) {
 
           gtag('config', 'AW-16778799212');
         `}
-      </Script>
+      </Script> */}
 
       <Script id="crisp">
         {`

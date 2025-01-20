@@ -1,11 +1,10 @@
-import Head from "next/head";
 import RoundedNavbar from "@/components/roundedNavbar";
 import InfoSection from "@/components/infoSection";
 import Features from "@/components/features";
 import Contact from "@/components/contact";
 import Products from "@/components/products";
 import Footer from "@/components/footer";
-// import { GoogleTagManager } from "@next/third-parties/google";
+import { NextSeo } from "next-seo";
 
 export default function Home() {
   const BannerInfo = [
@@ -31,11 +30,27 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>Bonza Boost</title>
-        <meta name="description" content="Bonza Boost is the place to safely get cheap and affordable server boosts."></meta>
-      </Head>
-      {/* <GoogleTagManager gtmId="AW-16778799212" /> */}
+      <NextSeo
+        title="Bonza Boost | The easiest and most affordable place to purchase server boosts"
+        description='Bonza Boost is the place to safely purchase cheap and affordable server boosts.'
+        canonical='https://www.bonzaboost.cc/'
+        openGraph={{
+          url: 'https://www.bonzaboost.cc/',
+          title: "Bonza Boost | The easiest and most affordable place to purchase server boosts",
+          description: 'Bonza Boost is the place to safely purchase cheap and affordable server boosts.',
+          images: [
+            {
+              url: '/logo.png',
+              width: 500,
+              height: 500,
+              alt: 'BonzaBoost Logo',
+              type: 'image/png'
+            }
+          ],
+          siteName: 'Bonza Boost'
+        }}
+      />
+
       <RoundedNavbar links />
       <InfoSection
         id="top"

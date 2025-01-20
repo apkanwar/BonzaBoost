@@ -1,17 +1,32 @@
-import Head from "next/head"
 import RoundedNavbar from "@/components/roundedNavbar"
 import Confetti from "@/components/confetti"
 import Footer from "@/components/footer"
-// import { GoogleTagManager } from "@next/third-parties/google"
+import { NextSeo } from "next-seo"
 
 export default function PurchaseSuccessful() {
     return (
         <>
-            <Head>
-                <title>Purchase Successful - Bonza Boost</title>
-                <meta name="description" content="Congrats on your successful purchase! Enjoy your product and let us know if you want anything else."></meta>
-            </Head>
-            {/* <GoogleTagManager gtmId="AW-16778799212" /> */}
+            <NextSeo
+                title="Bonza Boost | Purchase Successfull"
+                description='Bonza Boost is the place to safely purchase cheap and affordable server boosts.'
+                canonical='https://www.bonzaboost.cc/purchase-successfull'
+                openGraph={{
+                    url: 'https://www.bonzaboost.cc/purchase-successfull',
+                    title: "Bonza Boost | Purchase Successfull",
+                    description: 'Bonza Boost is the place to safely purchase cheap and affordable server boosts.',
+                    images: [
+                        {
+                            url: '/logo.png',
+                            width: 500,
+                            height: 500,
+                            alt: 'BonzaBoost Logo',
+                            type: 'image/png'
+                        }
+                    ],
+                    siteName: 'Bonza Boost'
+                }}
+            />
+
             <RoundedNavbar faq />
             <Confetti />
             <Footer />

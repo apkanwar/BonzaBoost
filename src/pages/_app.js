@@ -1,23 +1,30 @@
 import '@/styles/globals.css'
 import Script from 'next/script';
+import { DefaultSeo } from 'next-seo'
+// import TagManager from 'react-gtm-module';
+import { v4 as uuid4 } from 'uuid'
+import { useEffect } from 'react';
 
 export default function App({ Component, pageProps }) {
+  useEffect(() => {
+    // const tagManagerArgs = {
+    //   gtmId: ''
+    // }
+    // TagManager.initialize(tagManagerArgs)
+
+    const uuid = localStorage.getItem('uuid') ?? uuid4()
+    localStorage.setItem('uuid', uuid)
+  }, [])
 
   return (
     <main>
-      {/* <Script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=AW-16778799212"
+      <DefaultSeo
+        openGraph={{
+          type: 'website',
+          locale: 'en',
+          siteName: 'Bonza Boost'
+        }}
       />
-      <Script id="google-analytics">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'AW-16778799212');
-        `}
-      </Script> */}
 
       <Script id="crisp">
         {`

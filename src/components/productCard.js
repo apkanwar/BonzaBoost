@@ -1,20 +1,31 @@
-import { CheckIcon } from "@heroicons/react/24/outline";
+import { Check } from "@mui/icons-material";
 import { SvgIcon } from "@mui/material";
 
-const ProductCard = ({ product, onPurchase }) => {
+const ProductCard = ({ product, onPurchaseClick }) => {
     return (
         <div className="flex flex-col gap-6 bg-purple-900 text-white p-6 rounded-lg shadow-lg">
-            <h2 className="text-lg font-headings">{product.name}</h2>
-            <p className="text-4xl font-numbers">${product.minPrice.amount}</p>
-            {product.isInStock ? (
-                <button
-                    data-billgang-product-path={product.uniquePath}
-                    data-billgang-domain="bonzaboost.bgng.io"
-                    onClick={onPurchase}
-                    className="text-lg text-white font-headings font-semibold px-20 py-2 rounded-full bg-nitroPink transition ease-in-out hover:-translate-y-1 hover:shadow-xl hover:bg-nitroPink/80 duration-300"
-                >
-                    Purchase
-                </button>
+            <h2 className="text-lg font-headings">{product.title}</h2>
+            {/* Price and Discount */}
+            <div className='flex flex-row justify-between items-center'>
+                <p className="text-4xl font-numbers">${product.price}</p>
+                {product.price_discount !== 0 && (
+                    <div className={`px-2 h-fit w-fit uppercase bg-green-100 text-green-700 border border-green-700 rounded`}>
+                        {product.price_discount}% Off
+                    </div>
+                )}
+            </div>
+            {/* Stock and Purchase Button */}
+            {product.stock > 0 ? (
+                <div key={product.uniqid} className="product-container" onClick={onPurchaseClick}>
+                    <button
+                        data-sellix-product={product.uniqid}
+                        type="submit"
+                        alt="Buy Now with sellix.io"
+                        className="text-lg text-white font-headings font-semibold px-20 py-2 rounded-full bg-nitroPink transition ease-in-out hover:-translate-y-1 hover:shadow-xl hover:bg-nitroPink/80 duration-300"
+                    >
+                        Purchase
+                    </button>
+                </div>
             ) :
                 <div
                     className="text-lg text-white font-headings font-semibold px-20 py-2 rounded-full bg-gray-600 transition ease-in-out hover:-translate-y-1 hover:shadow-xl hover:bg-gray-500 duration-300"
@@ -22,12 +33,13 @@ const ProductCard = ({ product, onPurchase }) => {
                     Sold Out
                 </div>
             }
-            {product.shortDescription && (
+            {/* Description */}
+            {product.description && (
                 <ul className="flex flex-col gap-2 font-semibold font-main">
-                    {product.shortDescription.split(', ').map((d, i) => (
+                    {product.description.split(', ').map((d, i) => (
                         <li key={i} className="flex items-center gap-2">
-                            <SvgIcon>
-                                <CheckIcon />
+                            <SvgIcon className="font-bold">
+                                <Check />
                             </SvgIcon>
                             <span>{d}</span>
                         </li>

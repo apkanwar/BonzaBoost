@@ -10,7 +10,8 @@ export default function Document() {
       <body className="bg-dMode">
         <Main />
         <NextScript />
-        <Script src="https://platform.billgang.com/embed.js" strategy="beforeInteractive" />
+        {/* <Script src="https://platform.billgang.com/embed.js" strategy="beforeInteractive" /> */}
+        <Script src="https://cdn.sellix.io/static/js/embed.js" strategy="beforeInteractive"/>
       </body>
     </Html>
   )

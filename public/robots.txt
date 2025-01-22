@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://bonzaboost.cc/
+Host: https://www.bonzaboost.cc/
 
 # Sitemaps
-Sitemap: https://bonzaboost.cc/sitemap.xml
+Sitemap: https://www.bonzaboost.cc/sitemap.xml

@@ -98,7 +98,7 @@ export default function Products() {
             <div className="flex flex-col gap-4 items-center justify-center">
                 <p className="font-headings text-lg text-white bg-gray-600 rounded p-4">
                     If you want to pay using <span className="font-bold">Paypal</span>, please using
-                    the link below. Weapos;re in the process of creating a better solution in the coming
+                    the link below. We&apos;re in the process of creating a better solution in the coming
                     future.
                 </p>
                 <Link href={'https://paypal.me/BonzaBoost?country.x=CA&locale.x=en_US'} target="_blank" className="max-w-[400px] w-full bg-nitroPink text-white hover:bg-nitroPink/80 border-2 border-transparent cursor-pointer transition ease-in duration-200 rounded-lg text-center font-headings font-medium text-sm py-1.5 flex items-center justify-center">

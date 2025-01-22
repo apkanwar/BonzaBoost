@@ -15,7 +15,7 @@ const ProductCard = ({ product, onPurchaseClick }) => {
                 )}
             </div>
             {/* Stock and Purchase Button */}
-            {product.stock > 0 ? (
+            {product.stock != 0 ? (
                 <div key={product.uniqid} className="product-container" onClick={onPurchaseClick}>
                     <button
                         data-sellix-product={product.uniqid}

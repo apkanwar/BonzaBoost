@@ -150,6 +150,9 @@ export default function ProductPaypal({ product }) {
                     </div>
                 </div>
             </div>
+            <div className="font-bold text-lg text-white mt-4 max-w-5xl mx-auto text-center">
+                Please send using Paypal F&F when using PayPal.
+            </div>
             <Contact />
             <Footer />
         </>

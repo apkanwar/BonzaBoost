@@ -10,10 +10,16 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaypal } from "@fortawesome/free-brands-svg-icons";
 
-export default function ProductPaypal() {
-    const router = useRouter();
-    const product = router.query.data ? JSON.parse(router.query.data) : null;
+export default function ProductPaypal({ product }) {
     const [quantity, setQuantity] = useState(1);
+
+    if (!product) {
+        return (
+            <div className="text-center text-white mt-20">
+                <h1>Product Not Found</h1>
+            </div>
+        );
+    }
 
     const handleIncrease = () => {
         setQuantity((prev) => Math.min(prev + 1, 2000)); // Limit to 2000
@@ -148,4 +154,14 @@ export default function ProductPaypal() {
             <Footer />
         </>
     )
+}
+
+export async function getServerSideProps(context) {
+    const productData = context.query.data ? JSON.parse(context.query.data) : null;
+
+    return {
+        props: {
+            product: productData || null, // Default to null if no data is provided
+        },
+    };
 }

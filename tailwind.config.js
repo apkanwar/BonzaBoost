@@ -14,7 +14,8 @@ module.exports = withMT({
         'dPurple': '#8860d0',
         'nitroPink': '#FF65FF',
         'artic-blue': '#F0F8FF',
-        'dDark': '#2C2F33'
+        'dDark': '#2C2F33',
+        'bitcoin': '#FF9900'
       },
       fontFamily: {
         'headings': ['Rubik', 'sans-serif'],

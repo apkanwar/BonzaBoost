@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { useIsVisible } from "@/lib/useIsVisible";
 import ProductCard from "./productCard";
-import Link from "next/link";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBitcoin, faPaypal } from "@fortawesome/free-brands-svg-icons";
+import { faCreditCard } from "@fortawesome/free-solid-svg-icons";
 
 export default function Products() {
     const [groups, setGroups] = useState([]);
@@ -9,7 +11,7 @@ export default function Products() {
     const [filteredProducts, setFilteredProducts] = useState([]);
     const ref = useRef();
     const isVisible = useIsVisible(ref);
-    const [buttonVisible, setButtonVisible] = useState(false);
+    const [paymentMethod, setPaymentMethod] = useState("Crypto/Stripe");
 
     const handleCategoryClick = (group) => {
         setSelectedCategory(group.title);
@@ -44,22 +46,6 @@ export default function Products() {
         fetchGroups();
     }, []);
 
-    useEffect(() => {
-        const observer = new MutationObserver(() => {
-            const sellixBackdrop = document.getElementById('backdrop');
-            if (!sellixBackdrop) {
-                setButtonVisible(false);
-            }
-        });
-        observer.observe(document.body, {
-            childList: true,
-            subtree: true,
-        });
-        return () => {
-            observer.disconnect();
-        };
-    }, [setButtonVisible]);
-
     return (
         <div ref={ref} id="products" className={`${isVisible ? "opacity-100" : "opacity-0"} transition-opacity ease-in duration-1000 flex flex-col items-center justify-center py-12 xl:py-24 mx-4`}>
             <div className="max-w-7xl pb-12 items-center flex flex-col text-white">
@@ -80,99 +66,58 @@ export default function Products() {
                 ) : null}
             </div>
 
+            {/* Payment Switch */}
+            <div className="flex w-full max-w-7xl">
+                <div
+                    className={`flex ml-auto flex-row p-1 rounded-full items-center transition-colors duration-300 ${paymentMethod === "PayPal" ? "bg-blue-700" : "bg-bitcoin"
+                        }`}
+                >
+                    {/* Switch */}
+                    <div
+                        className="relative w-28 h-10 flex items-center bg-gray-600 rounded-full cursor-pointer"
+                        onClick={() =>
+                            setPaymentMethod((prev) => (prev === "Crypto/Stripe" ? "PayPal" : "Crypto/Stripe"))
+                        }
+                    >
+                        {/* Circle with Icon */}
+                        <div
+                            className={`absolute h-10 w-10 rounded-full transform transition-transform duration-300 flex items-center justify-center ${paymentMethod === "PayPal"
+                                    ? "translate-x-[4.5rem] bg-blue-700"
+                                    : "translate-x-0 bg-bitcoin w-16"
+                                }`}
+                        >
+                            {paymentMethod === "PayPal" ? (
+                                <FontAwesomeIcon icon={faPaypal} className="text-white h-5" />
+                            ) : (
+                                <span
+                                    className={`flex flex-row gap-2 transition-opacity duration-300 ${paymentMethod === "PayPal" ? "opacity-0" : "opacity-100"
+                                        }`}
+                                >
+                                    <FontAwesomeIcon icon={faCreditCard} className="text-white h-5" />
+                                    <FontAwesomeIcon icon={faBitcoin} className="text-white h-5" />
+                                </span>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
             {/* Products */}
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mx-auto my-8 max-w-7xl">
                 {filteredProducts && filteredProducts.length > 0 ? (
-                    filteredProducts.map((product, index) => (
+                    filteredProducts.map((product) => (
                         <ProductCard
-                            key={index}
+                            key={product.uniqid} // Use a unique key
                             product={product}
-                            onPurchaseClick={() => setButtonVisible(true)}
+                            paymentType={paymentMethod} // Pass paymentMethod as paymentType
                         />
                     ))
                 ) : (
-                    <>
-                    </>
+                    <p>No Products Available</p>
                 )}
             </div>
-            <div className="flex flex-col gap-4 items-center justify-center">
-                <p className="font-headings text-lg text-white bg-gray-600 rounded p-4">
-                    If you want to pay using <span className="font-bold">Paypal</span>, please using
-                    the link below. We&apos;re in the process of creating a better solution in the coming
-                    future.
-                </p>
-                <Link href={'https://paypal.me/BonzaBoost?country.x=CA&locale.x=en_US'} target="_blank" className="max-w-[400px] w-full bg-nitroPink text-white hover:bg-nitroPink/80 border-2 border-transparent cursor-pointer transition ease-in duration-200 rounded-lg text-center font-headings font-medium text-sm py-1.5 flex items-center justify-center">
-                    Purchase Using PayPal F&F
-                    <svg
-                        width="20"
-                        height="20"
-                        className="ml-2 w-[1.1rem] h-[1.1rem] min-w-[1.1rem]"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M4.16675 10H15.8334"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        ></path>
-                        <path
-                            d="M10.8333 15L15.8333 10"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        ></path>
-                        <path
-                            d="M10.8333 5L15.8333 10"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        ></path>
-                    </svg>
-                </Link>
-            </div>
-
-            {/* {buttonVisible && (
-                <div
-                    className="z-[999999] fixed top-2/3 ml-[1px] left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-[436px] w-full bg-white text-gray-900 hover:bg-gray-300 border-2 border-transparent cursor-pointer transition ease-in duration-200 rounded-lg text-center font-headings font-medium text-sm py-1.5 flex items-center justify-center"
-                >
-                    Purchase Using PayPal F&F
-                    <svg
-                        width="20"
-                        height="20"
-                        className="ml-2 w-[1.1rem] h-[1.1rem] min-w-[1.1rem]"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M4.16675 10H15.8334"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        ></path>
-                        <path
-                            d="M10.8333 15L15.8333 10"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        ></path>
-                        <path
-                            d="M10.8333 5L15.8333 10"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        ></path>
-                    </svg>
-                </div>
-            )} */}
         </div>
     )
 }

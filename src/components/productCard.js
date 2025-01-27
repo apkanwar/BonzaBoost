@@ -1,7 +1,8 @@
 import { Check } from "@mui/icons-material";
 import { SvgIcon } from "@mui/material";
+import Link from "next/link";
 
-const ProductCard = ({ product, onPurchaseClick }) => {
+const ProductCard = ({ product, paymentType }) => {
     return (
         <div className="flex flex-col gap-6 bg-purple-900 text-white p-6 rounded-lg shadow-lg">
             <h2 className="text-lg font-headings">{product.title}</h2>
@@ -14,25 +15,35 @@ const ProductCard = ({ product, onPurchaseClick }) => {
                     </div>
                 )}
             </div>
+
             {/* Stock and Purchase Button */}
-            {product.stock != 0 ? (
-                <div key={product.uniqid} className="product-container" onClick={onPurchaseClick}>
-                    <button
-                        data-sellix-product={product.uniqid}
-                        type="submit"
-                        alt="Buy Now with sellix.io"
-                        className="text-lg text-white font-headings font-semibold px-20 py-2 rounded-full bg-nitroPink transition ease-in-out hover:-translate-y-1 hover:shadow-xl hover:bg-nitroPink/80 duration-300"
-                    >
+            {product.stock !== 0 ? (
+                paymentType === "Crypto/Stripe" ? (
+                    <div key={product.uniqid} className="product-container">
+                        <button
+                            data-sellix-product={product.uniqid}
+                            type="submit"
+                            alt="Buy Now with sellix.io"
+                            className="text-lg text-white font-headings font-semibold px-20 py-2 rounded-full bg-nitroPink transition ease-in-out hover:-translate-y-1 hover:shadow-xl hover:bg-nitroPink/80 duration-300"
+                        >
+                            Purchase
+                        </button>
+                    </div>
+                ) : (
+                    <Link key={product.uniqid} className="text-lg text-white font-headings font-semibold px-20 py-2 rounded-full bg-blue-500 transition ease-in-out hover:-translate-y-1 hover:shadow-xl hover:bg-blue-900 duration-300"
+                        href={{
+                            pathname: `/paypal/${product.uniqid}`,
+                            query: { data: JSON.stringify(product) }, // Pass product data as a query param
+                        }}>
                         Purchase
-                    </button>
-                </div>
-            ) :
-                <div
-                    className="text-lg text-white font-headings font-semibold px-20 py-2 rounded-full bg-gray-600 transition ease-in-out hover:-translate-y-1 hover:shadow-xl hover:bg-gray-500 duration-300"
-                >
+                    </Link>
+                )
+            ) : (
+                <div className="text-lg text-white font-headings font-semibold px-20 py-2 rounded-full bg-gray-600 transition ease-in-out hover:-translate-y-1 hover:shadow-xl hover:bg-gray-500 duration-300">
                     Sold Out
                 </div>
-            }
+            )}
+
             {/* Description */}
             {product.description && (
                 <ul className="flex flex-col gap-2 font-semibold font-main">

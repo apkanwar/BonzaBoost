@@ -1,0 +1,35 @@
+.imageBox {
+  display: flex;
+  float: left;
+  width: 40%;
+  height: 100%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+.imageBox > img {
+  border-radius: 12px;
+}
+
+.info {
+  width: 60%;
+  margin: 2% 1%;
+  height: 100%;
+  padding: 2%;
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Phone Screens */
+@media screen and (max-width: 720px) {
+  .imageBox {
+    width: 100%;
+    padding-top: 100px;
+  }
+  .info {
+    width: 100%;
+    padding: 0 0 80px 0;
+  }
+}
+/* New Styles */
